@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+	
+	<!-- 객체의 생성,삭제  -->
+	<context:annotation-config/>
+	<!-- prototype는 getBean하는것만 계속 개체를 생성한다. -->
+	<bean id="student" class="bit.life.Student" scope = "prototype" >
+		<constructor-arg value="홍길순"></constructor-arg>
+		<constructor-arg value="30"></constructor-arg>
+	</bean>
+
+
+	<bean id="otherstudent" class="bit.life.OtherStudent">
+		<constructor-arg value="홍길동"></constructor-arg>
+		<constructor-arg value="25"></constructor-arg>
+	</bean>
+</beans>
