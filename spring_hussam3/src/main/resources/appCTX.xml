@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- set 대신 생성자 -->
+	<bean id="student1" class="bit.ex.Student"><!-- 매개변수의 순서 -->
+		<constructor-arg value="홍길동" /><!-- 이름 -->
+		<constructor-arg value="10" /><!-- 나이 -->
+		<constructor-arg>
+			<list><!-- hobby -->
+				<value>수영</value>								
+				<value>요리</value>
+			</list>
+		</constructor-arg>
+
+		<property name="height" value="187" />
+		<property name="weight" value="84" />
+	</bean>
+	<bean id="studentinfo1" class="bit.ex.StudentInfo">
+	<property name="student">
+		<ref bean = "student1"/>
+	</property>
+	</bean>
+</beans>

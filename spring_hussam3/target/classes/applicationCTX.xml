@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- bit.ex.BMICalculator bmicalculator= new BMICalculator(); -->
+	<bean id="bmiCalculator" class="bit.ex.BMICalculator">
+		<property name="lowWeight">
+			<value>18.5</value>
+		</property>
+		<property name="normal">
+			<value>23</value>
+		</property>
+		<property name="overWeight">
+			<value>25</value>
+		</property>
+		<property name="obesity">
+			<value>30</value>
+		</property>
+	</bean>
+
+	<bean id="myInfo" class="bit.ex.MyInfo">
+		<property name="name">
+			<value>홍길동</value>
+		</property>
+		<property name="height">
+			<value>187</value>
+		</property>
+		<property name="weight">
+			<value>84</value>
+		</property>
+		<property name="hobbys">
+			<list>
+				<value>수영</value>
+				<value>취미</value>
+				<value>독서</value>
+			</list>
+		</property>
+		<property name="bmiCalculator">
+			<ref bean="bmiCalculator"></ref>
+		</property>
+	</bean>
+	<!-- CircleArea circleArea = new CircleArea(); -->
+	<!-- circleArea.setr(10) -->
+ 	<bean id = "circleArea" class = "bit.ex.CircleArea">
+		<property name="r">
+			<value>10</value>
+		</property>
+	</bean> 
+	<bean id ="area" class = "bit.ex.Rectangle">
+	</bean>
+	
+	<bean id = "pencil" class = "bit.ex.Pencil6B"> <!-- 인터페이스를 이용해서 다형성을 구현한다. 코드의 내용을 -->
+	</bean> 										<!-- 바꾸지 않고 xml파일 내용만 바꾼다. -->
+</beans>
