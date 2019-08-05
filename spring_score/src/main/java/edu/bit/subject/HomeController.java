@@ -77,4 +77,16 @@ public class HomeController {
 		return "subject/scoreResult";
 	}
 	
+	@RequestMapping("/hand")
+	public String handresult(HttpServletRequest httpServletRequest, Hand hand, Model model) {
+
+		String qqq = httpServletRequest.getParameter("qq");
+		String www = httpServletRequest.getParameter("ww");
+		String eee = httpServletRequest.getParameter("ee");
+		
+		
+		
+		return "hand/handjob";
+	}
+	
 }
