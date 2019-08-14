@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> <!-- .dtd = .class? 설명부족;;; 문서안에서 해당태그들 정의 -->
+
+<mapper namespace="edu.bit.ex.dao.IBDao"> <!-- 메핑하는경로 namespace Dao 인터페이스를 찾아간다. -->
+
+	<select id="listDao" resultType="edu.bit.ex.dto.BDto">
+		SELECT BID, BNAME, BTITLE,
+		BCONTENT, BDATE, BHIT, BGROUP, BSTEP, BINDENT
+		FROM MVC_BOARD ORDER BY
+		BGROUP DESC, BSTEP ASC
+	</select>
+
+	<select id="ContentDao" resultType="edu.bit.ex.dto.BDto">
+		SELECT * FROM MVC_BOARD WHERE
+		BID = #{bId}
+	</select>
+
+	<delete id="deleteDao">
+		DELETE FROM MVC_BOARD WHERE
+		BID = #{bId}
+	</delete>
+	
+	<insert id="writeDao">
+		INSERT INTO MVC_BOARD (BID, BNAME, BTITLE, BCONTENT) VALUES (BOARD_SEQ.NEXTVAL, #{param1}, #{param2}, #{param3})
+	</insert>
+
+	<update id="modifyDao">
+		UPDATE MVC_BOARD SET BNAME=#{BNAME},
+		BTITLE=#{bTitle}, BCONTENT = #{bContent} WHERE BID=#{bId}
+	</update>
+
+	<update id="updateDao" parameterType="edu.bit.ex.dto.BDto">
+		UPDATE MVC_BOARD SET
+		BNAME=#{bName}, BTITLE=#{bTitle}, BCONTENT = #{bContent} WHERE
+		BID=#{bId}
+	</update>
+
+</mapper>
